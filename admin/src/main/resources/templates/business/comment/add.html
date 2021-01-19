@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="layui-form timo-compile">
+    <form th:action="@{/business/comment/save}">
+        <input type="hidden" name="id" th:if="${comment}" th:value="${comment.id}">
+        <div class="layui-form-item">
+            <label class="layui-form-label">文章ID</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="essayId" placeholder="请输入文章ID" th:value="${comment?.essayId}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">評論者ID</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="commentUserID" placeholder="请输入評論者ID" th:value="${comment?.commentUserID}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">評論類型</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="commentType" placeholder="请输入評論類型" th:value="${comment?.commentType}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">回復者ID</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="commentById" placeholder="请输入回復者ID" th:value="${comment?.commentById}">
+            </div>
+        </div>
+        <div class="layui-form-item timo-finally">
+            <button class="layui-btn ajax-submit"><i class="fa fa-check-circle"></i> 保存</button>
+            <button class="layui-btn btn-secondary close-popup"><i class="fa fa-times-circle"></i> 关闭</button>
+        </div>
+    </form>
+</div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

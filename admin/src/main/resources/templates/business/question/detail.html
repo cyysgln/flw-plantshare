@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="timo-detail-page">
+        <div class="timo-detail-title">基本信息</div>
+        <table class="layui-table timo-detail-table">
+            <colgroup>
+                <col width="100px"><col>
+                <col width="100px"><col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>问题ID</th>
+                    <td th:text="${question.id}"></td>
+                    <th>问题描述</th>
+                    <td th:text="${question.content}"></td>
+                </tr>
+                <tr>
+                    <th>花卉Id</th>
+                    <td th:text="${question.flowerId.flowerName}"></td>
+
+                </tr>
+                <tr>
+                    <th>图片1</th>
+                    <td th:text="${question.url1}"></td>
+                    <th>图片2</th>
+                    <td th:text="${question.url2}"></td>
+                </tr>
+                <tr>
+                    <th>图片3</th>
+                    <td th:text="${question.url3}"></td>
+                    <th>问题状态</th>
+                    <td th:text="${question.questionStatus}"></td>
+                </tr>
+                <tr>
+                    <th>创建者</th>
+                    <td th:text="${question.createBy?.nickname}"></td>
+                    <th>更新者</th>
+                    <td th:text="${question.updateBy?.nickname}"></td>
+                </tr>
+                <tr>
+                    <th>创建时间</th>
+                    <td th:text="${#dates.format(question.createDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <th>更新时间</th>
+                    <td th:text="${#dates.format(question.updateDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

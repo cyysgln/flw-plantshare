@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="layui-form timo-compile">
+    <form th:action="@{/business/essay/save}">
+        <input type="hidden" name="id" th:if="${essay}" th:value="${essay.id}">
+        <div class="layui-form-item">
+            <label class="layui-form-label">文章标题</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="title" placeholder="请输入文章标题" th:value="${essay?.title}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">作者ID</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="userId" placeholder="请输入作者ID" th:value="${essay?.userId}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">文章内容</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="content" placeholder="请输入文章内容" th:value="${essay?.content}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">分享數</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="shareCount" placeholder="请输入分享數" th:value="${essay?.shareCount}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">點擊數</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="clickCount" placeholder="请输入點擊數" th:value="${essay?.clickCount}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">點贊數</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="likesCount" placeholder="请输入點贊數" th:value="${essay?.likesCount}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">原創標識</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="originalFlag" placeholder="请输入原創標識" th:value="${essay?.originalFlag}">
+            </div>
+        </div>
+        <div class="layui-form-item timo-finally">
+            <button class="layui-btn ajax-submit"><i class="fa fa-check-circle"></i> 保存</button>
+            <button class="layui-btn btn-secondary close-popup"><i class="fa fa-times-circle"></i> 关闭</button>
+        </div>
+    </form>
+</div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

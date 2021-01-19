@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="timo-detail-page">
+        <div class="timo-detail-title">基本信息</div>
+        <table class="layui-table timo-detail-table">
+            <colgroup>
+                <col width="100px"><col>
+                <col width="100px"><col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>花卉名称</th>
+                    <td th:text="${flower.flowerName}"></td>
+                </tr>
+                <tr>
+                    <th>别名</th>
+                    <td th:text="${flower.alias}"></td>
+                    <th>花卉分类</th>
+                    <td th:text="${flower.flowerTypeId}"></td>
+                </tr>
+                <tr>
+                    <th>生长周期</th>
+                    <td th:text="${flower.cycle}"></td>
+                    <th>描述</th>
+                    <td th:text="${flower.introduce}"></td>
+                </tr>
+                <tr>
+                    <th>图片</th>
+                    <td><img class="layui-side-user-avatar " data-size="680,464"
+                             th:src="@{'/business/flower/picture?p='+${flower.url}}" alt="圖片"></td>
+                    <th>地区</th>
+                    <td th:text="${flower.area}"></td>
+                </tr>
+                <tr>
+                    <th>创建者</th>
+                    <td th:text="${flower.createBy?.nickname}"></td>
+                    <th>更新者</th>
+                    <td th:text="${flower.updateBy?.nickname}"></td>
+                </tr>
+                <tr>
+                    <th>创建时间</th>
+                    <td th:text="${#dates.format(flower.createDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <th>更新时间</th>
+                    <td th:text="${#dates.format(flower.updateDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/template :: header(~{::title},~{::link},~{::style})">
+</head>
+<body>
+    <div class="layui-form timo-compile">
+    <form th:action="@{/business/question/save}">
+        <input type="hidden" name="id" th:if="${question}" th:value="${question.id}">
+        <div class="layui-form-item">
+            <label class="layui-form-label">问题描述</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="content" placeholder="请输入问题描述" th:value="${question?.content}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">花卉Id</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="flowerId" placeholder="请输入花卉Id" th:value="${question?.flowerId}">
+            </div>
+        </div>
+        <!--<div class="layui-form-item">-->
+            <!--<label class="layui-form-label">花卉名称</label>-->
+            <!--<div class="layui-input-inline">-->
+                <!--<input class="layui-input" type="text" name="flowerName" placeholder="请输入花卉名称" th:value="${question?.flowerName}">-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">图片1</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="url1" placeholder="请输入图片1" th:value="${question?.url1}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">图片2</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="url2" placeholder="请输入图片2" th:value="${question?.url2}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">图片3</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="url3" placeholder="请输入图片3" th:value="${question?.url3}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">问题状态</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="questionStatus" placeholder="请输入问题状态" th:value="${question?.questionStatus}">
+            </div>
+        </div>
+        <div class="layui-form-item timo-finally">
+            <button class="layui-btn ajax-submit"><i class="fa fa-check-circle"></i> 保存</button>
+            <button class="layui-btn btn-secondary close-popup"><i class="fa fa-times-circle"></i> 关闭</button>
+        </div>
+    </form>
+</div>
+<script th:replace="/common/template :: script"></script>
+</body>
+</html>
