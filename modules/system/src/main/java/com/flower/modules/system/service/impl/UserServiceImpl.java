@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService {
                     preList.add(cb.like(root.get("nickname").as(String.class), "%"+ user.getNickname() + "%"));
                 }
                 if(user.getDept() != null){
-                    // 联级查询部门
+                    // 联级查询角色
                     Dept dept = user.getDept();
                     List<Long> deptIn = new ArrayList<>();
                     deptIn.add(dept.getId());

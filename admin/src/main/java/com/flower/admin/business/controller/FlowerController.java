@@ -12,6 +12,7 @@ import com.flower.common.vo.ResultVo;
 import com.flower.component.fileUpload.config.properties.UploadProjectProperties;
 import com.flower.component.shiro.ShiroUtil;
 import com.flower.modules.business.domain.Flower;
+import com.flower.modules.business.domain.FlowerKind;
 import com.flower.modules.business.service.FlowerService;
 import com.flower.modules.system.domain.Upload;
 import com.flower.modules.system.domain.User;
@@ -47,6 +48,10 @@ public class FlowerController {
     @Autowired
     private FlowerService flowerService;
 
+    @RequestMapping("/httprequest")
+    public String hello(){
+        return "cyy hello";
+    }
     /**
      * 列表页面
      */
@@ -87,6 +92,7 @@ public class FlowerController {
     @RequiresPermissions("business:flower:edit")
     public String toEdit(@PathVariable("id") Flower flower, Model model) {
         model.addAttribute("flower", flower);
+
         return "/business/flower/add";
     }
 

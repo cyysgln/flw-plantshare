@@ -44,10 +44,17 @@ public class Comment implements Serializable {
     //評論内容
     private String commentContent;
     // 文章ID
-    private Long essayId;
-
+    @ManyToOne(fetch=FetchType.LAZY)
+    @NotFound(action=NotFoundAction.IGNORE)
+    @JoinColumn(name="essay_id")
+    @JsonIgnore
+    private Essay essayId;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @NotFound(action=NotFoundAction.IGNORE)
+    @JoinColumn(name="comment_userid")
+    @JsonIgnore
     // 評論者ID
-    private Long commentUserID;
+    private User commentUserID;
     // 評論類型
     private Long commentType;
     // 回復者ID

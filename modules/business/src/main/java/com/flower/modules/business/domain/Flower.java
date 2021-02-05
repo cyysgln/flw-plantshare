@@ -42,7 +42,7 @@ public class Flower implements Serializable {
     @NotFound(action=NotFoundAction.IGNORE)
     @JoinColumn(name="flower_type_id")
     @JsonIgnore
-    private FlowerKind flowerTypeId;
+    private FlowerKind flowerKind;
     // 生长周期
     private String cycle;
     // 描述

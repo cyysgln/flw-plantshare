@@ -31,7 +31,7 @@ public class Dept implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /** 部门名称 */
+    /** 角色名称 */
     private String title;
 
     /** 父级编号 */

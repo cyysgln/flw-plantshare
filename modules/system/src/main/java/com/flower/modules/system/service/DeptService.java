@@ -15,10 +15,10 @@ import java.util.List;
 public interface DeptService {
 
     /**
-     * 获取部门列表数据
+     * 获取角色列表数据
      * @param example 查询实例
      * @param sort 排序对象
-     * @return 部门列表
+     * @return 角色列表
      */
     List<Dept> getListByExample(Example<Dept> example, Sort sort);
 
@@ -30,38 +30,38 @@ public interface DeptService {
     Integer getSortMax(Long pid);
 
     /**
-     * 根据父级部门ID获取本级全部部门
-     * @param pid 父部门ID
-     * @param notId 需要排除的部门ID
-     * @return 部门列表
+     * 根据父级角色ID获取本级全部角色
+     * @param pid 父角色ID
+     * @param notId 需要排除的角色ID
+     * @return 角色列表
      */
     List<Dept> getListByPid(Long pid, Long notId);
 
     /**
-     * 保存多个部门
-     * @param deptList 部门实体类列表
-     * @return 部门列表
+     * 保存多个角色
+     * @param deptList 角色实体类列表
+     * @return 角色列表
      */
     List<Dept> save(List<Dept> deptList);
 
     /**
-     * 根据部门管理ID查询部门管理数据
-     * @param id 部门管理ID
-     * @return 部门信息
+     * 根据角色管理ID查询角色管理数据
+     * @param id 角色管理ID
+     * @return 角色信息
      */
     Dept getById(Long id);
 
     /**
-     * 根据ID查找子孙部门
+     * 根据ID查找子孙角色
      * @param id [id]形式
-     * @return 部门列表
+     * @return 角色列表
      */
     List<Dept> getListByPidLikeOk(Long id);
 
     /**
-     * 保存部门管理
-     * @param dept 部门管理实体类
-     * @return 部门信息
+     * 保存角色管理
+     * @param dept 角色管理实体类
+     * @return 角色信息
      */
     Dept save(Dept dept);
 

@@ -60,12 +60,12 @@ public class ShiroUtil {
     public static User getSubject() {
         User user = (User) SecurityUtils.getSubject().getPrincipal();
 
-        // 初始化延迟加载的部门信息
+        // 初始化延迟加载的角色信息
         if (user != null && !Hibernate.isInitialized(user.getDept())) {
             try {
                 Hibernate.initialize(user.getDept());
             } catch (LazyInitializationException e) {
-                // 部门数据延迟加载超时，重新查询用户数据（用于更新“记住我”状态登录的数据）
+                // 角色数据延迟加载超时，重新查询用户数据（用于更新“记住我”状态登录的数据）
                 UserService userService = SpringContextUtil.getBean(UserService.class);
                 User reload = userService.getById(user.getId());
                 Hibernate.initialize(reload.getDept());

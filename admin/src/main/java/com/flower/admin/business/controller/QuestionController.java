@@ -4,20 +4,30 @@ import com.flower.admin.business.validator.QuestionValid;
 import com.flower.common.enums.StatusEnum;
 import com.flower.common.utils.EntityBeanUtil;
 import com.flower.common.utils.ResultVoUtil;
+import com.flower.common.utils.SpringContextUtil;
 import com.flower.common.utils.StatusUtil;
 import com.flower.common.vo.ResultVo;
+import com.flower.component.fileUpload.config.properties.UploadProjectProperties;
 import com.flower.modules.business.domain.Question;
 import com.flower.modules.business.service.QuestionService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -117,4 +127,26 @@ public class QuestionController {
             return ResultVoUtil.error(statusEnum.getMessage() + "失败，请重新操作");
         }
     }
+    /**
+     * 获取問題圖片
+     */
+    @GetMapping("/picture")
+    public void picture(String p, HttpServletResponse response) throws IOException {
+        String defaultPath = "/images/user-picture.jpg";
+        if (!(StringUtils.isEmpty(p) || p.equals(defaultPath))) {
+            UploadProjectProperties properties = SpringContextUtil.getBean(UploadProjectProperties.class);
+            String fuPath = properties.getFilePath();
+            String spPath = properties.getStaticPath().replace("*", "");
+            File file = new File(fuPath + p.replace(spPath, ""));
+            if (file.exists()) {
+                FileCopyUtils.copy(new FileInputStream(file), response.getOutputStream());
+                return;
+            }
+        }
+        Resource resource = new ClassPathResource("static" + defaultPath);
+        FileCopyUtils.copy(resource.getInputStream(), response.getOutputStream());
+
+    }
+
+
 }

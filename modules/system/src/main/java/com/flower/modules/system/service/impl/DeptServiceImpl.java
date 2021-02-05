@@ -32,8 +32,8 @@ public class DeptServiceImpl implements DeptService {
     private UserRepository userRepository;
 
     /**
-     * 根据部门管理ID查询部门管理数据
-     * @param id 部门管理ID
+     * 根据角色管理ID查询角色管理数据
+     * @param id 角色管理ID
      */
     @Override
     @Transactional
@@ -42,7 +42,7 @@ public class DeptServiceImpl implements DeptService {
     }
 
     /**
-     * 获取部门列表数据
+     * 获取角色列表数据
      * @param example 查询实例
      * @param sort 排序对象
      */
@@ -61,9 +61,9 @@ public class DeptServiceImpl implements DeptService {
     }
 
     /**
-     * 根据父级部门ID获取本级全部部门
-     * @param pid 父部门ID
-     * @param notId 需要排除的部门ID
+     * 根据父级角色ID获取本级全部角色
+     * @param pid 父角色ID
+     * @param notId 需要排除的角色ID
      */
     @Override
     public List<Dept> getListByPid(Long pid, Long notId){
@@ -72,7 +72,7 @@ public class DeptServiceImpl implements DeptService {
     }
 
     /**
-     * 根据ID查找子孙部门
+     * 根据ID查找子孙角色
      * @param id [id]形式
      */
     @Override
@@ -81,8 +81,8 @@ public class DeptServiceImpl implements DeptService {
     }
 
     /**
-     * 保存部门管理
-     * @param dept 部门管理实体类
+     * 保存角色管理
+     * @param dept 角色管理实体类
      */
     @Override
     public Dept save(Dept dept){
@@ -90,8 +90,8 @@ public class DeptServiceImpl implements DeptService {
     }
 
     /**
-     * 保存多个部门
-     * @param deptList 部门实体类列表
+     * 保存多个角色
+     * @param deptList 角色实体类列表
      */
     @Override
     public List<Dept> save(List<Dept> deptList){
@@ -104,7 +104,7 @@ public class DeptServiceImpl implements DeptService {
     @Override
     @Transactional
     public Boolean updateStatus(StatusEnum statusEnum, List<Long> ids){
-        // 获取与之关联的所有部门
+        // 获取与之关联的所有角色
         Set<Dept> treeDepts = new HashSet<>();
         List<Dept> depts = deptRepository.findByIdIn(ids);
         depts.forEach(dept -> {
@@ -119,7 +119,7 @@ public class DeptServiceImpl implements DeptService {
                     throw new ResultException(ResultEnum.DEPT_EXIST_USER);
                 }
             }
-            // 更新关联的所有部门状态
+            // 更新关联的所有角色状态
             dept.setStatus(statusEnum.getCode());
         });
 

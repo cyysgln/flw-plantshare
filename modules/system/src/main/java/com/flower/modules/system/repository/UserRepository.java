@@ -3,6 +3,7 @@ package com.flower.modules.system.repository;
 import com.flower.modules.system.domain.Dept;
 import com.flower.modules.system.domain.User;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -28,8 +29,8 @@ public interface UserRepository extends BaseRepository<User, Long>, JpaSpecifica
     public User findByUsernameAndIdNot(String username, Long id);
 
     /**
-     * 查找多个相应部门的用户列表
-     * @param dept 部门对象
+     * 查找多个相应角色的用户列表
+     * @param dept 角色对象
      * @return 用户列表
      */
     public List<User> findByDept(Dept dept);

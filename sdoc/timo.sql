@@ -48,7 +48,7 @@ INSERT INTO `sys_action_log` (`id`, `name`, `type`, `ipaddr`, `clazz`, `method`,
 -- 导出  表 timo.sys_dept 结构
 CREATE TABLE IF NOT EXISTS `sys_dept` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `title` varchar(255) DEFAULT NULL COMMENT '部门名称',
+  `title` varchar(255) DEFAULT NULL COMMENT '角色名称',
   `pid` bigint(20) DEFAULT NULL COMMENT '父级ID',
   `pids` varchar(255) DEFAULT NULL COMMENT '所有父级编号',
   `sort` int(11) DEFAULT NULL COMMENT '排序',
@@ -69,10 +69,10 @@ CREATE TABLE IF NOT EXISTS `sys_dept` (
 /*!40000 ALTER TABLE `sys_dept` DISABLE KEYS */;
 INSERT INTO `sys_dept` (`id`, `title`, `pid`, `pids`, `sort`, `remark`, `create_date`, `update_date`, `create_by`, `update_by`, `status`) VALUES
 	(1, '总公司', 0, '[0]', 1, '', '2018-12-02 17:41:23', '2019-02-23 02:41:28', 1, 1, 1),
-	(2, '技术部门', 1, '[0],[1]', 1, '', '2018-12-02 17:51:04', '2019-04-27 13:12:46', 1, 1, 1),
-	(3, '市场部门', 1, '[0],[1]', 2, '', '2018-12-02 17:51:42', '2019-04-27 13:12:20', 1, 1, 1),
-	(4, '研发部门', 1, '[0],[1]', 3, '', '2018-12-02 17:51:55', '2019-04-27 13:12:20', 1, 1, 1),
-	(5, '测试部门', 1, '[0],[1]', 4, '', '2018-12-02 17:52:07', '2019-04-27 13:12:20', 1, 1, 1);
+	(2, '技术角色', 1, '[0],[1]', 1, '', '2018-12-02 17:51:04', '2019-04-27 13:12:46', 1, 1, 1),
+	(3, '市场角色', 1, '[0],[1]', 2, '', '2018-12-02 17:51:42', '2019-04-27 13:12:20', 1, 1, 1),
+	(4, '研发角色', 1, '[0],[1]', 3, '', '2018-12-02 17:51:55', '2019-04-27 13:12:20', 1, 1, 1),
+	(5, '测试角色', 1, '[0],[1]', 4, '', '2018-12-02 17:52:07', '2019-04-27 13:12:20', 1, 1, 1);
 /*!40000 ALTER TABLE `sys_dept` ENABLE KEYS */;
 
 -- 导出  表 timo.sys_dict 结构
@@ -184,7 +184,7 @@ INSERT INTO `sys_menu` (`id`, `title`, `pid`, `pids`, `url`, `perms`, `icon`, `t
 	(30, '开发中心', 0, '[0]', '#', '#', 'fa fa-gavel', 1, 3, '', '2018-10-19 16:38:23', '2019-02-27 21:34:56', 1, 1, 1),
 	(31, '代码生成', 30, '[0],[30]', '/dev/code', '#', '', 2, 1, '', '2018-10-19 16:39:04', '2019-03-13 17:43:58', 1, 1, 1),
 	(125, '表单构建', 30, '[0],[30]', '/dev/build', '#', '', 2, 2, '', '2018-11-25 16:12:23', '2019-02-24 16:16:40', 1, 1, 1),
-	(136, '部门管理', 2, '[0],[2]', '/system/dept/index', 'system:dept:index', '', 2, 4, '', '2018-12-02 16:33:23', '2019-02-24 16:10:50', 1, 1, 1),
+	(136, '角色管理', 2, '[0],[2]', '/system/dept/index', 'system:dept:index', '', 2, 4, '', '2018-12-02 16:33:23', '2019-02-24 16:10:50', 1, 1, 1),
 	(137, '添加', 136, '[0],[2],[136]', '/system/dept/add', 'system:dept:add', '', 3, 1, '', '2018-12-02 16:33:23', '2019-02-24 16:13:34', 1, 1, 1),
 	(138, '编辑', 136, '[0],[2],[136]', '/system/dept/edit', 'system:dept:edit', '', 3, 2, '', '2018-12-02 16:33:23', '2019-02-24 16:13:42', 1, 1, 1),
 	(139, '详细', 136, '[0],[2],[136]', '/system/dept/detail', 'system:dept:detail', '', 3, 3, '', '2018-12-02 16:33:23', '2019-02-24 16:13:49', 1, 1, 1),
@@ -309,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `sys_user` (
   `nickname` varchar(255) DEFAULT NULL COMMENT '用户昵称',
   `password` char(64) DEFAULT NULL COMMENT '密码',
   `salt` varchar(255) DEFAULT NULL COMMENT '密码盐',
-  `dept_id` bigint(20) DEFAULT NULL COMMENT '部门ID',
+  `dept_id` bigint(20) DEFAULT NULL COMMENT '角色ID',
   `picture` varchar(255) DEFAULT NULL COMMENT '头像',
   `sex` tinyint(4) DEFAULT NULL COMMENT '性别（1:男,2:女）',
   `email` varchar(255) DEFAULT NULL COMMENT '邮箱',

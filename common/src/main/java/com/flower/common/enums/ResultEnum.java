@@ -33,9 +33,9 @@ public enum ResultEnum implements ResultInterface {
     ROLE_EXIST(401, "该角色标识已经存在，不允许重复！"),
 
     /**
-     * 部门问题
+     * 角色问题
      */
-    DEPT_EXIST_USER(401, "部门存在用户，无法删除"),
+    DEPT_EXIST_USER(401, "角色存在用户，无法删除"),
 
     /**
      * 字典问题
