@@ -12,12 +12,12 @@
         <div class="layui-card-body">
             <div class="layui-row timo-card-screen">
                 <div class="pull-left layui-form-pane timo-search-box">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">状态</label>
-                        <div class="layui-input-block timo-search-status">
-                            <select class="timo-search-select" name="status" mo:dict="SEARCH_STATUS" mo-selected="${param.status}"></select>
-                        </div>
-                    </div>
+                    <!--<div class="layui-inline">-->
+                        <!--<label class="layui-form-label">状态</label>-->
+                        <!--<div class="layui-input-block timo-search-status">-->
+                            <!--<select class="timo-search-select" name="status" mo:dict="SEARCH_STATUS" mo-selected="${param.status}"></select>-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="layui-inline">
                         <label class="layui-form-label">问题描述</label>
                         <div class="layui-input-block">
@@ -30,12 +30,12 @@
                             <input type="text" name="flowerId" th:value="${param.flowerId}" placeholder="请输入花卉Id" autocomplete="off" class="layui-input">
                         </div>
                     </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label">花卉名称</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="flowerName" th:value="${param.flowerName}" placeholder="请输入花卉名称" autocomplete="off" class="layui-input">
-                        </div>
-                    </div>
+                    <!--<div class="layui-inline">-->
+                        <!--<label class="layui-form-label">花卉名称</label>-->
+                        <!--<div class="layui-input-block">-->
+                            <!--<input type="text" name="flowerName" th:value="${param.flowerId?.flowerName}" placeholder="请输入花卉名称" autocomplete="off" class="layui-input">-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="layui-inline">
                         <button class="layui-btn timo-search-btn">
                             <i class="fa fa-search"></i>
@@ -45,13 +45,13 @@
                 <div class="pull-right screen-btn-group">
                     <button class="layui-btn open-popup" data-title="添加问题管理" th:attr="data-url=@{/business/question/add}" data-size="auto">
                         <i class="fa fa-plus"></i> 添加</button>
-                    <div class="btn-group">
-                        <button class="layui-btn">操作<span class="caret"></span></button>
-                        <dl class="layui-nav-child layui-anim layui-anim-upbit">
-                            <dd><a class="ajax-status" th:href="@{/business/question/status/ok}">启用</a></dd>
-                            <dd><a class="ajax-status" th:href="@{/business/question/status/freezed}">冻结</a></dd>
-                            <dd><a class="ajax-status" th:href="@{/business/question/status/delete}">删除</a></dd>
-                        </dl>
+                    <!--<div class="btn-group">-->
+                        <!--<button class="layui-btn">操作<span class="caret"></span></button>-->
+                        <!--<dl class="layui-nav-child layui-anim layui-anim-upbit">-->
+                            <!--<dd><a class="ajax-status" th:href="@{/business/question/status/ok}">启用</a></dd>-->
+                            <!--<dd><a class="ajax-status" th:href="@{/business/question/status/freezed}">冻结</a></dd>-->
+                            <!--<dd><a class="ajax-status" th:href="@{/business/question/status/delete}">删除</a></dd>-->
+                        <!--</dl>-->
                     </div>
                 </div>
             </div>
@@ -65,6 +65,7 @@
                         </th>
                         <!--<th>问题ID</th>-->
                         <th>问题描述</th>
+                        <th>花卉ID</th>
                         <th>花卉名称</th>
                         <th>图片1</th>
                         <th>图片2</th>
@@ -78,12 +79,13 @@
                     <tr th:each="item:${list}">
                         <td><label class="timo-checkbox"><input type="checkbox" th:value="${item.id}">
                             <i class="layui-icon layui-icon-ok"></i></label></td>
-                        <!--<td th:text="${item.id}">问题ID</td>-->
+
                         <td th:text="${item.content}">问题描述</td>
+                        <td th:text="${item.flowerId.id}">花卉ID</td>
                         <td th:text="${item.flowerId.flowerName}">花卉名称</td>
-                        <td th:text="${item.url1}">图片1</td>
-                        <td th:text="${item.url2}">图片2</td>
-                        <td th:text="${item.url3}">图片3</td>
+                        <td ><img class="user-avatar"  th:src="@{'/business/question/picture?p='+${item.url1}}" alt="头像"></td>
+                        <td><img class="user-avatar"  th:src="@{'/business/question/picture?p='+${item.url2}}" alt="头像"></td>
+                        <td ><img class="user-avatar"  th:src="@{'/business/question/picture?p='+${item.url3}}" alt="头像"></td>
                         <td th:text="${item.questionStatus}">问题状态</td>
                         <td th:text="${#dicts.dataStatus(item.status)}">数据状态</td>
                         <td>

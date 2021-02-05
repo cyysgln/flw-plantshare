@@ -51,7 +51,7 @@ public class DeptController {
     }
 
     /**
-     * 部门数据列表
+     * 角色数据列表
      */
     @GetMapping("/list")
     @RequiresPermissions(value = {"system:dept:index", "system:user:index"}, logical = Logical.OR)
@@ -61,7 +61,7 @@ public class DeptController {
         ExampleMatcher matcher = ExampleMatcher.matching().
                 withMatcher("title", match -> match.contains());
 
-        // 获取部门列表
+        // 获取角色列表
         Example<Dept> example = Example.of(dept, matcher);
         Sort sort = new Sort(Sort.Direction.ASC, "sort");
         List<Dept> list = deptService.getListByExample(example, sort);
@@ -69,7 +69,7 @@ public class DeptController {
     }
 
     /**
-     * 获取排序部门列表
+     * 获取排序角色列表
      */
     @GetMapping("/sortList/{pid}/{notId}")
     @RequiresPermissions({"system:dept:add", "system:dept:edit"})
@@ -77,7 +77,7 @@ public class DeptController {
     public Map<Integer, String> sortList(
             @PathVariable(value = "pid", required = false) Long pid,
             @PathVariable(value = "notId", required = false) Long notId){
-        // 本级排序部门列表
+        // 本级排序角色列表
         notId = notId != null ? notId : (long) 0;
         List<Dept> levelDept = deptService.getListByPid(pid, notId);
         Map<Integer, String> sortMap = new TreeMap<>();
@@ -122,7 +122,7 @@ public class DeptController {
     @PostMapping("/save")
     @RequiresPermissions({"system:dept:add", "system:dept:edit"})
     @ResponseBody
-    @ActionLog(name = "部门管理", message = "部门：${title}", action = SaveAction.class)
+    @ActionLog(name = "角色管理", message = "角色：${title}", action = SaveAction.class)
     public ResultVo save(@Validated DeptValid valid, @EntityParam Dept dept) {
         if (dept.getId() == null) {
             // 排序为空时，添加到最后
@@ -176,7 +176,7 @@ public class DeptController {
     @RequestMapping("/status/{param}")
     @RequiresPermissions("system:dept:status")
     @ResponseBody
-    @ActionLog(name = "部门状态", action = StatusAction.class)
+    @ActionLog(name = "角色状态", action = StatusAction.class)
     public ResultVo status(
             @PathVariable("param") String param,
             @RequestParam(value = "ids", required = false) List<Long> ids){

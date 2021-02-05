@@ -24,13 +24,15 @@
                 </tr>
                 <tr>
                     <th>图片1</th>
-                    <td th:text="${question.url1}"></td>
+                    <td ><img class="user-avatar"  th:src="@{'/business/question/picture?p='+${question.url1}}" alt="头像"></td>
+
                     <th>图片2</th>
-                    <td th:text="${question.url2}"></td>
+                    <td><img class="user-avatar"  th:src="@{'/business/question/picture?p='+${question.url2}}" alt="头像"></td>
                 </tr>
                 <tr>
                     <th>图片3</th>
-                    <td th:text="${question.url3}"></td>
+                    <td ><img class="user-avatar"  th:src="@{'/business/question/picture?p='+${question.url3}}" alt="头像"></td>
+
                     <th>问题状态</th>
                     <td th:text="${question.questionStatus}"></td>
                 </tr>

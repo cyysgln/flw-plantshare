@@ -343,7 +343,9 @@ layui.use(['element', 'form', 'layer', 'upload'], function () {
                 show.append("<div class='upload-item'><img src='"+ result +"'/>" +
                     "<input id='"+ index +"' type='hidden' name='"+name+"'/>" +
                     "<i class='upload-item-close layui-icon layui-icon-close'></i></div>");
+
             });
+
         }
         ,done: function(res, index, upload){
             var field = $('.upload-image').attr('up-field') || 'id';

@@ -24,10 +24,12 @@ import com.flower.modules.system.service.RoleService;
 import com.flower.modules.system.service.UserService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -39,9 +41,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author 小懒虫
@@ -305,5 +305,12 @@ public class UserController {
             return ResultVoUtil.error(statusEnum.getMessage() + "失败，请重新操作");
         }
     }
+@RequestMapping(value = "Applogin")
+    public User login(@PathVariable("name") String username,@Param("psw") String psw){
+    System.out.println(username+psw);
+    User user=new User();
+    user=userService.getByName(username);
+    return user;
 
+}
 }

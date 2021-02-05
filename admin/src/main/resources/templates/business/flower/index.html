@@ -12,12 +12,12 @@
         <div class="layui-card-body">
             <div class="layui-row timo-card-screen">
                 <div class="pull-left layui-form-pane timo-search-box">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">状态</label>
-                        <div class="layui-input-block timo-search-status">
-                            <select class="timo-search-select" name="status" mo:dict="SEARCH_STATUS" mo-selected="${param.status}"></select>
-                        </div>
-                    </div>
+                    <!--<div class="layui-inline">-->
+                        <!--<label class="layui-form-label">状态</label>-->
+                        <!--<div class="layui-input-block timo-search-status">-->
+                            <!--<select class="timo-search-select" name="status" mo:dict="SEARCH_STATUS" mo-selected="${param.status}"></select>-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="layui-inline">
                         <label class="layui-form-label">花卉名称</label>
                         <div class="layui-input-block">
@@ -33,7 +33,7 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">花卉分类</label>
                         <div class="layui-input-block">
-                            <input type="text" name="flower_type_id" th:value="${param.flower_type_id}" placeholder="请输入花卉分类" autocomplete="off" class="layui-input">
+                            <input type="text" name="flower_type_id" th:value="${param.flowerKind}" placeholder="请输入花卉分类" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-inline">
@@ -63,14 +63,14 @@
                 <div class="pull-right screen-btn-group">
                     <button class="layui-btn open-popup" data-title="添加花卉管理" th:attr="data-url=@{/business/flower/add}" data-size="auto">
                         <i class="fa fa-plus"></i> 添加</button>
-                    <div class="btn-group">
-                        <button class="layui-btn">操作<span class="caret"></span></button>
-                        <dl class="layui-nav-child layui-anim layui-anim-upbit">
-                            <dd><a class="ajax-status" th:href="@{/business/flower/status/ok}">启用</a></dd>
-                            <dd><a class="ajax-status" th:href="@{/business/flower/status/freezed}">冻结</a></dd>
-                            <dd><a class="ajax-status" th:href="@{/business/flower/status/delete}">删除</a></dd>
-                        </dl>
-                    </div>
+                    <!--<div class="btn-group">-->
+                        <!--<button class="layui-btn">操作<span class="caret"></span></button>-->
+                        <!--<dl class="layui-nav-child layui-anim layui-anim-upbit">-->
+                            <!--<dd><a class="ajax-status" th:href="@{/business/flower/status/ok}">启用</a></dd>-->
+                            <!--<dd><a class="ajax-status" th:href="@{/business/flower/status/freezed}">冻结</a></dd>-->
+                            <!--<dd><a class="ajax-status" th:href="@{/business/flower/status/delete}">删除</a></dd>-->
+                        <!--</dl>-->
+                    <!--</div>-->
                 </div>
             </div>
             <div class="timo-table-wrap">
@@ -99,9 +99,9 @@
                             <i class="layui-icon layui-icon-ok"></i></label></td>
                         <td th:text="${item.flowerName}">花卉名称</td>
                         <td th:text="${item.alias}">别名</td>
-                        <td th:text="${item.flowerTypeId.kindName}">花卉分类</td>
+                        <td th:text="${item.flowerKind.kindName}">花卉分类</td>
                         <td th:text="${item.cycle}">生长周期</td>
-                        <td th:text="${item.introduce}">描述</td>
+                        <td th:text="${item.introduce}" style="width: 700px; ">描述</td>
                         <td><img class="user-avatar"  th:src="@{'/business/flower/picture?p='+${item.url}}" alt="头像"></td>
                         <td th:text="${item.area}">地区</td>
                         <td th:text="${#dates.format(item.updateDate, 'yyyy-MM-dd HH:mm:ss')}">更新时间</td>

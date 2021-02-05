@@ -12,30 +12,30 @@
         <div class="layui-card-body">
             <div class="layui-row timo-card-screen">
                 <div class="pull-left layui-form-pane timo-search-box">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">状态</label>
-                        <div class="layui-input-block timo-search-status">
-                            <select class="timo-search-select" name="status" mo:dict="SEARCH_STATUS" mo-selected="${param.status}"></select>
-                        </div>
-                    </div>
+                    <!--<div class="layui-inline">-->
+                        <!--<label class="layui-form-label">状态</label>-->
+                        <!--<div class="layui-input-block timo-search-status">-->
+                            <!--<select class="timo-search-select" name="status" mo:dict="SEARCH_STATUS" mo-selected="${param.status}"></select>-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="layui-inline">
                         <label class="layui-form-label">分类名称</label>
                         <div class="layui-input-block">
                             <input type="text" name="categoryName" th:value="${param.categoryName}" placeholder="请输入分类名称" autocomplete="off" class="layui-input">
                         </div>
                     </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label">父级分类ID</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="parentCategoryId" th:value="${param.parentCategoryId}" placeholder="请输入父级分类ID" autocomplete="off" class="layui-input">
-                        </div>
-                    </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label">父级分类名称</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="parentCategoryName" th:value="${param.parentCategoryName}" placeholder="请输入父级分类名称" autocomplete="off" class="layui-input">
-                        </div>
-                    </div>
+                    <!--<div class="layui-inline">-->
+                        <!--<label class="layui-form-label">父级分类ID</label>-->
+                        <!--<div class="layui-input-block">-->
+                            <!--<input type="text" name="parentCategoryId" th:value="${param.parentCategoryId}" placeholder="请输入父级分类ID" autocomplete="off" class="layui-input">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="layui-inline">-->
+                        <!--<label class="layui-form-label">父级分类名称</label>-->
+                        <!--<div class="layui-input-block">-->
+                            <!--<input type="text" name="parentCategoryName" th:value="${param.parentCategoryName}" placeholder="请输入父级分类名称" autocomplete="off" class="layui-input">-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="layui-inline">
                         <button class="layui-btn timo-search-btn">
                             <i class="fa fa-search"></i>
@@ -45,14 +45,14 @@
                 <div class="pull-right screen-btn-group">
                     <button class="layui-btn open-popup" data-title="添加文章种类管理" th:attr="data-url=@{/business/essayCategory/add}" data-size="auto">
                         <i class="fa fa-plus"></i> 添加</button>
-                    <div class="btn-group">
-                        <button class="layui-btn">操作<span class="caret"></span></button>
-                        <dl class="layui-nav-child layui-anim layui-anim-upbit">
-                            <dd><a class="ajax-status" th:href="@{/business/essayCategory/status/ok}">启用</a></dd>
-                            <dd><a class="ajax-status" th:href="@{/business/essayCategory/status/freezed}">冻结</a></dd>
-                            <dd><a class="ajax-status" th:href="@{/business/essayCategory/status/delete}">删除</a></dd>
-                        </dl>
-                    </div>
+                    <!--<div class="btn-group">-->
+                        <!--<button class="layui-btn">操作<span class="caret"></span></button>-->
+                        <!--<dl class="layui-nav-child layui-anim layui-anim-upbit">-->
+                            <!--<dd><a class="ajax-status" th:href="@{/business/essayCategory/status/ok}">启用</a></dd>-->
+                            <!--<dd><a class="ajax-status" th:href="@{/business/essayCategory/status/freezed}">冻结</a></dd>-->
+                            <!--<dd><a class="ajax-status" th:href="@{/business/essayCategory/status/delete}">删除</a></dd>-->
+                        <!--</dl>-->
+                    <!--</div>-->
                 </div>
             </div>
             <div class="timo-table-wrap">
@@ -65,8 +65,8 @@
                         </th>
                         <th>文章分类ID</th>
                         <th>分类名称</th>
-                        <th>父级分类ID</th>
-                        <th>父级分类名称</th>
+                        <!--<th>父级分类ID</th>-->
+                        <!--<th>父级分类名称</th>-->
                         <th>创建时间</th>
                         <th>更新时间</th>
                         <th>数据状态</th>
@@ -79,8 +79,8 @@
                             <i class="layui-icon layui-icon-ok"></i></label></td>
                         <td th:text="${item.id}">文章分类ID</td>
                         <td th:text="${item.categoryName}">分类名称</td>
-                        <td th:text="${item.parentCategoryId}">父级分类ID</td>
-                        <td th:text="${item.parentCategoryName}">父级分类名称</td>
+                        <!--<td th:text="${item.parentCategoryId}">父级分类ID</td>-->
+                        <!--<td th:text="${item.parentCategoryName}">父级分类名称</td>-->
                         <td th:text="${#dates.format(item.createDate, 'yyyy-MM-dd HH:mm:ss')}">创建时间</td>
                         <td th:text="${#dates.format(item.updateDate, 'yyyy-MM-dd HH:mm:ss')}">更新时间</td>
                         <td th:text="${#dicts.dataStatus(item.status)}">数据状态</td>

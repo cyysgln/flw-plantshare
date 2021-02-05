@@ -45,19 +45,19 @@
                         shiro:hasPermission="system:role:add" data-size="460,357">
                     <i class="fa fa-plus"></i> 添加
                 </button>
-                <button class="layui-btn open-popup-param" data-type="radio" data-title="授权管理"
-                        th:attr="data-url=@{/system/role/auth}" shiro:hasPermission="system:role:auth"
-                        data-size="600,500">
-                    <i class="fa fa-user-secret"></i> 授权
-                </button>
-                <div class="btn-group" shiro:hasPermission="system:role:status">
-                    <button class="layui-btn">操作<span class="caret"></span></button>
-                    <dl class="layui-nav-child layui-anim layui-anim-upbit">
-                        <dd><a class="ajax-status" th:href="@{/system/role/status/ok}">启用</a></dd>
-                        <dd><a class="ajax-status" th:href="@{/system/role/status/freezed}">冻结</a></dd>
-                        <dd><a class="ajax-status" th:href="@{/system/role/status/delete}">删除</a></dd>
-                    </dl>
-                </div>
+                <!--<button class="layui-btn open-popup-param" data-type="radio" data-title="授权管理"-->
+                        <!--th:attr="data-url=@{/system/role/auth}" shiro:hasPermission="system:role:auth"-->
+                        <!--data-size="600,500">-->
+                    <!--<i class="fa fa-user-secret"></i> 授权-->
+                <!--</button>-->
+                <!--<div class="btn-group" shiro:hasPermission="system:role:status">-->
+                    <!--<button class="layui-btn">操作<span class="caret"></span></button>-->
+                    <!--<dl class="layui-nav-child layui-anim layui-anim-upbit">-->
+                        <!--<dd><a class="ajax-status" th:href="@{/system/role/status/ok}">启用</a></dd>-->
+                        <!--<dd><a class="ajax-status" th:href="@{/system/role/status/freezed}">冻结</a></dd>-->
+                        <!--<dd><a class="ajax-status" th:href="@{/system/role/status/delete}">删除</a></dd>-->
+                    <!--</dl>-->
+                <!--</div>-->
             </div>
         </div>
         <div class="timo-table-wrap">
@@ -68,8 +68,9 @@
                         <label class="timo-checkbox"><input type="checkbox">
                             <i class="layui-icon layui-icon-ok"></i></label>
                     </th>
-                    <th class="sortable" data-field="name">角色编号</th>
+                    <th class="sortable" data-field="id">角色编号</th>
                     <th class="sortable" data-field="title">角色名称</th>
+                    <th class="sortable" data-field="name">子角色名称</th>
                     <th class="sortable" data-field="createDate">创建时间</th>
                     <th class="sortable" data-field="updateDate">更新时间</th>
                     <th>查看</th>
@@ -80,8 +81,9 @@
                 <tr th:each="item:${list}">
                     <td><label class="timo-checkbox"><input type="checkbox" th:value="${item.id}">
                         <i class="layui-icon layui-icon-ok"></i></label></td>
-                    <td th:text="${item.name}">角色编号</td>
+                    <td th:text="${item.id}">角色编号</td>
                     <td th:text="${item.title}">角色名称</td>
+                    <td th:text="${item.name}">子角色名称</td>
                     <td th:text="${#dates.format(item.createDate, 'yyyy-MM-dd HH:mm:ss')}">创建时间</td>
                     <td th:text="${#dates.format(item.updateDate, 'yyyy-MM-dd HH:mm:ss')}">更新时间</td>
                     <td>

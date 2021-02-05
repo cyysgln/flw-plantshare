@@ -114,7 +114,7 @@
             <div class="layui-card-header">项目介绍</div>
             <div class="layui-card-body project-introduce">
                 <blockquote class="layui-elem-quote layui-quote-nm">
-                    TIMO后台管理系统，基于SpringBoot2.0 + Spring Data Jpa + Thymeleaf + Shiro 开发的后台管理系统，采用分模块的方式便于开发和维护，目前支持的功能有：权限管理、部门管理、字典管理、日志记录、文件上传、代码生成等，为快速开发后台系统而生的脚手架！
+                    TIMO后台管理系统，基于SpringBoot2.0 + Spring Data Jpa + Thymeleaf + Shiro 开发的后台管理系统，采用分模块的方式便于开发和维护，目前支持的功能有：权限管理、角色管理、字典管理、日志记录、文件上传、代码生成等，为快速开发后台系统而生的脚手架！
                     <div>开源协议：Apache License 2.0</div>
                     <div>开源地址：<a href="https://gitee.com/aun/Timo">https://gitee.com/aun/Timo</a></div>
                 </blockquote>
@@ -131,7 +131,7 @@
                         <li>用户管理：用于管理后台系统的用户，可进行增删改查等操作。</li>
                         <li>角色管理：分配权限的最小单元，通过角色给用户分配权限。</li>
                         <li>菜单管理：用于配置系统菜单，同时也作为权限资源。</li>
-                        <li>部门管理：通过不同的部门来管理和区分用户。</li>
+                        <li>角色管理：通过不同的角色来管理和区分用户。</li>
                         <li>字典管理：对一些需要转换的数据进行统一管理，如：男、女等。</li>
                         <li>行为日志：用于记录用户对系统的操作，同时监视系统运行时发生的错误。</li>
                         <li>文件上传：内置了文件上传接口，方便开发者使用文件上传功能。</li>
@@ -181,7 +181,7 @@
                                 1. 更新：重命名菜单类型为：目录、菜单、按钮<br>
                                 2. 更新：重写Shiro“记住我”系列化数据，减少cookie体积<br>
                                 3. 新增：获取用户角色列表方法<br>
-                                4. 修复：获取部门数据时延迟加载超时问题<br>
+                                4. 修复：获取角色数据时延迟加载超时问题<br>
                                 5. 修复：将jq版本改为2.2.4，解决layui弹出窗口最大化问题<br>
                                 6. 新增：项目配置项，可直接通过yml文件配置Shiro和XSS防护忽略规则<br>
                                 7. 新增：ResultExceptionError和ResultExceptionSuccess异常类<br>
@@ -203,7 +203,7 @@
                                 7.修复：接口无法继承多个父接口的问题<br>
                                 8.修复：jwt组件中添加获取用户名的方法<br>
                                 9.修复：代码生成时控制器保存地址问题<br>
-                                10.修复：部门、菜单控制器更新数据时，pids无法更新<br>
+                                10.修复：角色、菜单控制器更新数据时，pids无法更新<br>
                             </p>
                         </div>
                     </li>
@@ -215,7 +215,7 @@
                                 1.新增：加入JWT TOKEN鉴权机制，实现多端的权限验证！<br>
                                 2.更新：模块化全局统一异常处理机制及项目配置，降低模块间的耦合性！<br>
                                 3.修复：部分环境下代码生成模板文件编译时的后缀遗留问题！<br>
-                                4.修复：部门更新导致pids字段为空的问题！<br>
+                                4.修复：角色更新导致pids字段为空的问题！<br>
                             </p>
                         </div>
                     </li>
@@ -272,7 +272,7 @@
                         <div class="layui-timeline-content layui-text">
                             <h3 class="layui-timeline-title">v1.0.1</h3>
                             <p>
-                                1.加入部门管理<br>
+                                1.加入角色管理<br>
                                 2.更新项目开源协议<br>
                                 3.支持第三级子菜单
                             </p>

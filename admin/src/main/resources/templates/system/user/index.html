@@ -15,21 +15,21 @@
     <div class="layui-card-body">
         <div class="layui-row timo-card-screen put-row">
             <div class="pull-left layui-form-pane timo-search-box">
-                <div class="layui-inline">
-                    <label class="layui-form-label">状态</label>
-                    <div class="layui-input-block timo-search-status">
-                        <select class="timo-search-select" name="status" mo:dict="SEARCH_STATUS"
-                                mo-selected="${param.status}"></select>
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <label class="layui-form-label">所在部门</label>
-                    <div class="layui-input-block">
-                        <input class="layui-input select-tree"
-                               th:attr="data-url=@{/system/dept/list}, data-value=${dept?.id}" th:value="${dept?.title}"
-                               type="text" name="dept" placeholder="请选择部门">
-                    </div>
-                </div>
+                <!--<div class="layui-inline">-->
+                    <!--<label class="layui-form-label">状态</label>-->
+                    <!--<div class="layui-input-block timo-search-status">-->
+                        <!--<select class="timo-search-select" name="status" mo:dict="SEARCH_STATUS"-->
+                                <!--mo-selected="${param.status}"></select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="layui-inline">-->
+                    <!--<label class="layui-form-label">所在角色</label>-->
+                    <!--<div class="layui-input-block">-->
+                        <!--<input class="layui-input select-tree"-->
+                               <!--th:attr="data-url=@{/system/dept/list}, data-value=${dept?.id}" th:value="${dept?.title}"-->
+                               <!--type="text" name="dept" placeholder="请选择角色">-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="layui-inline">
                     <label class="layui-form-label">用户名</label>
                     <div class="layui-input-block">
@@ -89,11 +89,11 @@
                     <th class="sortable" data-field="username">用户名</th>
                     <th class="sortable" data-field="nickname">用户昵称</th>
                     <th class="sortable" data-field="picture">頭像</th>
-                    <th class="sortable" data-field="dept">所在部门</th>
+                    <!--<th class="sortable" data-field="dept">角色</th>-->
                     <th class="sortable" data-field="sex">性别</th>
                     <th class="sortable" data-field="phone">电话</th>
                     <th class="sortable" data-field="email">邮箱</th>
-                    <th class="sortable" data-field="createDate">创建时间</th>
+                    <!--<th class="sortable" data-field="createDate">创建时间</th>-->
                     <th>状态</th>
                     <th>操作</th>
                 </tr>
@@ -107,11 +107,11 @@
 
                     <td><img class="layui-side-user-avatar" data-size="680,464"
                               th:src="@{'/system/user/picture?p='+${item.picture}}" alt="头像"></td>
-                    <td th:text="${item.dept?.title}">用户昵称</td>
+                    <!--<td th:text="${item.dept?.title}">用户昵称</td>-->
                     <td th:text="${#dicts.keyValue('USER_SEX', item.sex)}">性别</td>
                     <td th:text="${item.phone}">电话</td>
                     <td th:text="${item.email}">邮箱</td>
-                    <td th:text="${#dates.format(item.createDate, 'yyyy-MM-dd HH:mm:ss')}">创建时间</td>
+                    <!--<td th:text="${#dates.format(item.createDate, 'yyyy-MM-dd HH:mm:ss')}">创建时间</td>-->
                     <td th:text="${#dicts.dataStatus(item.status)}">状态</td>
                     <td>
                         <a class="open-popup" data-title="编辑用户" th:attr="data-url=@{'/system/user/edit/'+${item.id}}"

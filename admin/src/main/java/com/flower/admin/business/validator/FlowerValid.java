@@ -15,5 +15,5 @@ public class FlowerValid implements Serializable {
     @NotEmpty(message = "花卉名称不能为空")
     private String flowerName;
     @NotNull(message = "花卉分类不能为空")
-    private Long flowerTypeId;
+    private Long flowerKind;
 }

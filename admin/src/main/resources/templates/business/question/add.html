@@ -15,7 +15,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">花卉Id</label>
             <div class="layui-input-inline">
-                <input class="layui-input" type="text" name="flowerId" placeholder="请输入花卉Id" th:value="${question?.flowerId}">
+                <input class="layui-input" type="text" name="flowerId" placeholder="请输入花卉Id" th:value="${question?.flowerId?.id}">
             </div>
         </div>
         <!--<div class="layui-form-item">-->
@@ -24,16 +24,24 @@
                 <!--<input class="layui-input" type="text" name="flowerName" placeholder="请输入花卉名称" th:value="${question?.flowerName}">-->
             <!--</div>-->
         <!--</div>-->
+        <!--<button type="button" class="layui-btn upload-image" name="url1"-->
+                <!--th:attr="up-url=@{/upload/image}" up-field="path">-->
+            <!--<i class="layui-icon">&#xe67c;</i>上传图片-->
+        <!--</button>-->
         <div class="layui-form-item">
             <label class="layui-form-label">图片1</label>
             <div class="layui-input-inline">
                 <input class="layui-input" type="text" name="url1" placeholder="请输入图片1" th:value="${question?.url1}">
+
             </div>
+                <div class="upload-show"></div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">图片2</label>
             <div class="layui-input-inline">
                 <input class="layui-input" type="text" name="url2" placeholder="请输入图片2" th:value="${question?.url2}">
+
+
             </div>
         </div>
         <div class="layui-form-item">
@@ -41,11 +49,17 @@
             <div class="layui-input-inline">
                 <input class="layui-input" type="text" name="url3" placeholder="请输入图片3" th:value="${question?.url3}">
             </div>
-        </div>
+        <!--</div>-->
         <div class="layui-form-item">
             <label class="layui-form-label">问题状态</label>
             <div class="layui-input-inline">
-                <input class="layui-input" type="text" name="questionStatus" placeholder="请输入问题状态" th:value="${question?.questionStatus}">
+                <!--<input class="layui-input" type="text" name="questionStatus" placeholder="请输入问题状态" th:value="${question?.questionStatus}">-->
+                <select name="questionStatus" lay-verify=""  class="btn-group"th:value="${question?.questionStatus}">
+                    <option value="1" >已解决</option>
+                    <option value="0" >未解决</option>
+
+                    <!--<option value="2">測試</option>-->
+                </select>
             </div>
         </div>
         <div class="layui-form-item timo-finally">

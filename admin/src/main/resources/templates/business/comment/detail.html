@@ -16,12 +16,12 @@
                     <td th:text="${comment.id}"></td>
                     <th>評論内容</th>
                     <td th:text="${comment.commentContent}"></td>
-                    <th>文章ID</th>
-                    <td th:text="${comment.essayId}"></td>
+                    <th>文章標題</th>
+                    <td th:text="${comment.essayId.title}"></td>
                 </tr>
                 <tr>
-                    <th>評論者ID</th>
-                    <td th:text="${comment.commentUserID}"></td>
+                    <th>評論者名字</th>
+                    <td th:text="${comment.commentUserID.username}"></td>
                     <th>評論類型</th>
                     <td th:text="${comment.commentType}"></td>
                 </tr>
