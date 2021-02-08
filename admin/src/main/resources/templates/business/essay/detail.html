@@ -47,6 +47,10 @@
                     <th>更新时间</th>
                     <td th:text="${#dates.format(essay.updateDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
                 </tr>
+              <tr>
+                  <th>文章类型</th>
+                  <td th:text="${essay.essayCategory.categoryName}"></td>
+              </tr>
             </tbody>
         </table>
     </div>

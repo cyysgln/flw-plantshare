@@ -20,10 +20,13 @@
                 <th>用户性别</th>
                 <td th:text="${#dicts.keyValue('USER_SEX', user.sex)}"></td>
             </tr>
-            <!--<tr>-->
-                <!--<th>所在角色</th>-->
-                <!--<td colspan="4" th:text="${user.dept?.title}"></td>-->
-            <!--</tr>-->
+            <tr>
+                <th>用户等级</th>
+                <td th:text="${user.dept?.title}"></td>
+                <th>城市</th>
+                <td th:text="${user.city}"></td>
+
+            </tr>
             <tr>
                 <th>电话号码</th>
                 <td th:text="${user.phone}"></td>
@@ -31,8 +34,10 @@
                 <td th:text="${user.email}"></td>
             </tr>
             <tr>
-                <th>创建时间</th>
-                <td th:text="${#dates.format(user.createDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <!--<th>创建时间</th>-->
+                <!--<td th:text="${#dates.format(user.createDate, 'yyyy-MM-dd HH:mm:ss')}"></td>-->
+                <th>用户积分</th>
+                <td th:text="${user.number}"></td>
                 <th>最后修改</th>
                 <td th:text="${#dates.format(user.updateDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
             </tr>
@@ -43,7 +48,7 @@
             </tbody>
         </table>
 
-        <div th:replace="/common/fragment :: log(${user})"></div>
+        <!--<div th:replace="/common/fragment :: log(${user})"></div>-->
     </div>
 <script th:replace="/common/template :: script"></script>
 </body>

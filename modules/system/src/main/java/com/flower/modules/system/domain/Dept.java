@@ -24,7 +24,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "sys_dept")
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class)//审计和审核
 @Where(clause = StatusUtil.NOT_DELETE)
 public class Dept implements Serializable {
     @Id

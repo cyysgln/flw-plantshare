@@ -3,6 +3,8 @@ package com.flower.modules.business.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.flower.common.enums.StatusEnum;
 import com.flower.common.utils.StatusUtil;
+import com.flower.modules.system.domain.Dept;
+import com.flower.modules.system.domain.Role;
 import com.flower.modules.system.domain.User;
 import lombok.Data;
 import org.hibernate.annotations.NotFound;
@@ -16,15 +18,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.*;
 
 /**
  * @author cyy
@@ -78,4 +74,9 @@ public class Essay implements Serializable {
     private User updateBy;
     // 数据状态
     private Byte status = StatusEnum.OK.getCode();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "essayCategory_id")
+    @JsonIgnore
+    private EssayCategory essayCategory;
 }

@@ -305,8 +305,8 @@ public class UserController {
             return ResultVoUtil.error(statusEnum.getMessage() + "失败，请重新操作");
         }
     }
-@RequestMapping(value = "Applogin")
-    public User login(@PathVariable("name") String username,@Param("psw") String psw){
+@PostMapping(value = "/Applogin")
+    public User login(@RequestParam("username") String username,@RequestParam("password") String psw){
     System.out.println(username+psw);
     User user=new User();
     user=userService.getByName(username);

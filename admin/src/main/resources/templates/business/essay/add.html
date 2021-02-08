@@ -19,6 +19,12 @@
             </div>
         </div>
         <div class="layui-form-item">
+            <label class="layui-form-label">文章类型</label>
+            <div class="layui-input-inline">
+                <input class="layui-input" type="text" name="essayCategory"  th:value="${essay.essayCategory.categoryName}">
+            </div>
+        </div>
+        <div class="layui-form-item">
             <label class="layui-form-label">文章内容</label>
             <div class="layui-input-inline">
                 <input class="layui-input" type="text" name="content" placeholder="请输入文章内容" th:value="${essay?.content}">

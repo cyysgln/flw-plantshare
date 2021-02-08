@@ -70,7 +70,7 @@
                     </th>
                     <th class="sortable" data-field="id">角色编号</th>
                     <th class="sortable" data-field="title">角色名称</th>
-                    <th class="sortable" data-field="name">子角色名称</th>
+                    <!--<th class="sortable" data-field="name">子角色名称</th>-->
                     <th class="sortable" data-field="createDate">创建时间</th>
                     <th class="sortable" data-field="updateDate">更新时间</th>
                     <th>查看</th>
@@ -83,7 +83,7 @@
                         <i class="layui-icon layui-icon-ok"></i></label></td>
                     <td th:text="${item.id}">角色编号</td>
                     <td th:text="${item.title}">角色名称</td>
-                    <td th:text="${item.name}">子角色名称</td>
+                    <!--<td th:text="${item.name}">子角色名称</td>-->
                     <td th:text="${#dates.format(item.createDate, 'yyyy-MM-dd HH:mm:ss')}">创建时间</td>
                     <td th:text="${#dates.format(item.updateDate, 'yyyy-MM-dd HH:mm:ss')}">更新时间</td>
                     <td>

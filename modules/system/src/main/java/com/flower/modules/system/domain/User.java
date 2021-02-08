@@ -53,6 +53,10 @@ public class User implements Serializable {
     private String phone;
     @Excel("电子邮箱")
     private String email;
+    //城市
+    private String city;
+    //会员积分
+    private String number;
     @CreatedDate
     @Excel("创建时间")
     private Date createDate;

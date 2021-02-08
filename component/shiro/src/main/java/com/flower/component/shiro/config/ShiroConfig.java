@@ -49,6 +49,7 @@ public class ShiroConfig {
          * 	—user 认证和自动登录可访问
          */
         LinkedHashMap<String, String> filterMap = new LinkedHashMap<>();
+        filterMap.put("/system/user/Applogin","anon");
         filterMap.put("/login", "anon");
         filterMap.put("/logout", "anon");
         filterMap.put("/captcha", "anon");
@@ -58,6 +59,7 @@ public class ShiroConfig {
         filterMap.put("/images/**", "anon");
         filterMap.put("/lib/**", "anon");
         filterMap.put("/favicon.ico", "anon");
+
         // 通过yml配置文件方式配置的[anon]忽略规则
         String[] excludes = properties.getExcludes().split(",");
         for (String exclude : excludes) {
